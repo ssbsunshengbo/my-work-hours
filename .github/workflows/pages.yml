@@ -28,7 +28,7 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          cp "outputs/我的工时本.html" _site/index.html
+          cp site/index.html _site/index.html
           cp site/manifest.webmanifest _site/manifest.webmanifest
           cp site/sw.js _site/sw.js
           cp site/icon.svg _site/icon.svg
