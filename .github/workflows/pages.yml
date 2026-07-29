@@ -1,0 +1,50 @@
+name: Deploy work hours app
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare static site
+        run: |
+          mkdir -p _site
+          cp "outputs/我的工时本.html" _site/index.html
+          cp site/manifest.webmanifest _site/manifest.webmanifest
+          cp site/sw.js _site/sw.js
+          cp site/icon.svg _site/icon.svg
+          cp site/icon-192.png _site/icon-192.png
+          cp site/icon-512.png _site/icon-512.png
+          perl -0pi -e 's%</head>%  <meta name="theme-color" content="#0a4036">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="apple-mobile-web-app-title" content="我的工时本">\n  <meta name="apple-mobile-web-app-status-bar-style" content="default">\n  <link rel="manifest" href="manifest.webmanifest">\n  <link rel="icon" href="icon.svg" type="image/svg+xml">\n  <link rel="apple-touch-icon" href="icon-192.png">\n</head>%' _site/index.html
+          perl -0pi -e 's%</body>%  <script>\n    if ("serviceWorker" in navigator) {\n      window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));\n    }\n  </script>\n</body>%' _site/index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
