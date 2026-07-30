@@ -3,38 +3,208 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a4036">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="我的工时本">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
   <title>我的工时本</title>
   <style>
-    :root { --ink:#172525;--muted:#667674;--line:#dce6e1;--paper:#f6f8f5;--mint:#dff4e7;--green:#11735c;--dark:#0a4036; }
-    *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif}.app{width:min(1080px,calc(100% - 28px));margin:auto;padding:26px 0 58px}.hero{padding:27px 30px 34px;color:white;background:var(--dark);border-radius:26px}.brand{font-weight:700;font-size:15px}.brand b{display:inline-grid;place-items:center;width:28px;height:28px;margin-right:8px;border-radius:9px;color:var(--dark);background:var(--mint)}.intro{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-top:32px}.eyebrow{margin:0 0 8px;color:var(--green);font-size:12px;font-weight:700;letter-spacing:.1em}.hero .eyebrow{color:#91d7b8}h1{max-width:590px;margin:0 0 11px;font-size:clamp(30px,5vw,46px);line-height:1.12;letter-spacing:-.05em}h2{margin:0;font-size:23px;letter-spacing:-.03em}.sub{max-width:560px;margin:0;color:#c9dfd5;line-height:1.65;font-size:14px}.target{min-width:225px;padding:14px 16px;border:1px solid #4f8678;border-radius:15px;background:#174c40}.target label{display:block;margin-bottom:6px;color:#c9dfd5;font-size:12px}.target input{width:61px;padding:0;border:0;border-bottom:1px solid #b3dbc8;outline:0;color:white;background:transparent;font-size:18px;font-weight:700}.target small{margin-left:8px;color:#d7eee2}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:20px 0}.card,.panel{border:1px solid var(--line);border-radius:20px;background:#fff}.card{min-height:138px;padding:20px}.card.mint{border-color:#bde6ce;background:var(--mint)}.label{margin:0 0 11px;color:var(--muted);font-size:13px}.value{display:block;margin-bottom:9px;font-size:28px;letter-spacing:-.05em}.mint .value{color:var(--dark)}.positive{color:var(--green)}.negative{color:#b84f3b}.hint{color:var(--muted);font-size:12px}.workspace{display:grid;grid-template-columns:1fr 260px;gap:20px}.panel{padding:26px}.heading{display:flex;justify-content:space-between;gap:12px;margin-bottom:22px}.pill{padding:6px 10px;align-self:start;border-radius:999px;color:var(--green);background:var(--mint);font-size:12px;font-weight:700}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}label span{display:block;margin-bottom:7px;color:#415450;font-size:13px;font-weight:700}input,textarea{width:100%;border:1px solid #cad8d2;border-radius:10px;outline:none;background:white;color:var(--ink);font:inherit}input{height:43px;padding:0 11px}textarea{padding:10px 11px;resize:vertical}input:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #11735c20}.note{display:block;margin-top:15px}.preview{display:grid;grid-template-columns:1fr auto;gap:3px 15px;align-items:center;margin:19px 0;padding:14px 15px;border-radius:12px;background:#eef7f1}.preview span,.preview small{color:#54716a;font-size:12px}.preview strong{grid-row:span 2;color:var(--dark);font-size:20px}.actions{display:flex;justify-content:flex-end;gap:9px}button{min-height:41px;padding:0 15px;border-radius:10px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}.primary{border:1px solid var(--green);color:white;background:var(--green)}.secondary,.export{border:1px solid var(--line);color:#31514a;background:white}.guide{color:#eaf9f1;background:#166351;border-color:#166351}.guide .eyebrow{color:#b4e4cc}.guide h2{margin-bottom:25px}.guide ol{display:grid;gap:17px;margin:0;padding:0;list-style:none}.guide li{display:grid;grid-template-columns:27px 1fr;gap:9px;align-items:center;color:#dcf2e7;font-size:13px;line-height:1.45}.guide li b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;color:var(--dark);background:var(--mint);font-size:12px}.privacy{margin-top:29px;padding-top:15px;border-top:1px solid #ffffff38;color:#b7daca;font-size:12px;line-height:1.6}.records{margin-top:20px}.records-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:20px}.table-wrap{overflow:auto}table{width:100%;min-width:690px;border-collapse:collapse}th{padding:0 10px 11px;border-bottom:1px solid var(--line);color:#72837f;text-align:left;font-size:11px;letter-spacing:.06em}td{padding:14px 10px;border-bottom:1px solid #edf2ef;color:#536560;font-size:13px}td strong{color:var(--ink)}.row-buttons{white-space:nowrap}.row-buttons button{min-height:auto;padding:0;border:0;color:var(--green);background:none;font-size:12px}.row-buttons button+button{margin-left:11px;color:#bc5e49}.empty{padding:44px 20px 30px;text-align:center}.empty i{display:grid;place-items:center;width:42px;height:42px;margin:0 auto 13px;border-radius:50%;color:var(--green);background:var(--mint);font-size:25px;font-style:normal}.empty h3{margin:0 0 7px}.empty p{margin:0;color:var(--muted);font-size:13px}@media(max-width:760px){.intro{display:block}.target{max-width:245px;margin-top:24px}.stats,.workspace{grid-template-columns:1fr}.guide{order:-1}.guide ol{grid-template-columns:repeat(3,1fr)}.guide li{grid-template-columns:1fr}.panel{padding:22px 17px}}@media(max-width:500px){.app{width:min(100% - 18px,1080px);padding-top:10px}.hero{padding:21px 19px 27px;border-radius:20px}.form-grid{grid-template-columns:1fr}.guide ol{grid-template-columns:1fr}.guide li{grid-template-columns:27px 1fr}.actions button{flex:1}.records-head{align-items:start;flex-direction:column}.export{width:100%}}
+    :root{--ink:#162524;--muted:#687876;--line:#dce7e2;--paper:#f7f8f5;--soft:#e9f6ee;--green:#11735c;--dark:#0a4036;--danger:#b84f3b}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif}
+    .app{width:min(980px,calc(100% - 28px));margin:auto;padding:18px 0 48px}
+    .top{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:20px 0}
+    .brand{font-size:20px;font-weight:800;letter-spacing:0}
+    .target{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}
+    .target input{width:70px;height:36px;padding:0 9px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);font:inherit;font-weight:700}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
+    .card,.panel{border:1px solid var(--line);border-radius:8px;background:white}
+    .card{padding:16px}
+    .label{margin:0 0 9px;color:var(--muted);font-size:13px}
+    .value{display:block;color:var(--ink);font-size:25px;letter-spacing:0}
+    .hint{display:block;margin-top:7px;color:var(--muted);font-size:12px}
+    .positive{color:var(--green)}
+    .negative{color:var(--danger)}
+    .punch{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+    .panel{padding:18px}
+    .section-title{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}
+    h1,h2{margin:0;letter-spacing:0}
+    h1{font-size:24px}
+    h2{font-size:18px}
+    .now{color:var(--muted);font-size:13px}
+    .punch-status{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+    .slot{padding:12px;border-radius:8px;background:var(--soft)}
+    .slot span{display:block;margin-bottom:6px;color:var(--muted);font-size:12px}
+    .slot strong{font-size:22px}
+    button{min-height:42px;border-radius:8px;border:1px solid var(--line);font:inherit;font-weight:800;cursor:pointer}
+    .button-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .primary{border-color:var(--green);color:white;background:var(--green)}
+    .secondary{color:#31514a;background:white}
+    .danger{border-color:#ead4cf;color:var(--danger);background:#fff7f5}
+    .manual summary{cursor:pointer;color:var(--green);font-weight:800}
+    .manual form{margin-top:16px}
+    .form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    label span{display:block;margin-bottom:7px;color:#425653;font-size:13px;font-weight:700}
+    input,textarea{width:100%;border:1px solid #cad8d2;border-radius:8px;outline:none;background:white;color:var(--ink);font:inherit}
+    input{height:42px;padding:0 10px}
+    textarea{padding:10px;resize:vertical}
+    input:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #11735c20}
+    .note{display:block;margin-top:12px}
+    .preview{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:14px 0;padding:12px;border-radius:8px;background:var(--soft);color:var(--muted);font-size:13px}
+    .preview strong{color:var(--dark);font-size:18px}
+    .actions{display:flex;justify-content:flex-end;gap:9px}
+    .records{margin-top:12px}
+    .records-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+    .export{padding:0 13px;color:#31514a;background:white}
+    .table-wrap{overflow:auto}
+    table{width:100%;min-width:660px;border-collapse:collapse}
+    th{padding:0 9px 10px;border-bottom:1px solid var(--line);color:#72837f;text-align:left;font-size:12px}
+    td{padding:13px 9px;border-bottom:1px solid #edf2ef;color:#536560;font-size:13px}
+    td strong{color:var(--ink)}
+    .row-buttons{white-space:nowrap}
+    .row-buttons button{min-height:auto;padding:0;border:0;color:var(--green);background:none;font-size:12px}
+    .row-buttons button+button{margin-left:10px;color:var(--danger)}
+    .empty{padding:28px 12px;text-align:center;color:var(--muted);font-size:13px}
+    @media(max-width:700px){.top{display:block}.target{margin-top:12px}.stats,.punch{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.records-head{align-items:start;flex-direction:column}.export{width:100%}.button-row{grid-template-columns:1fr 1fr}.value{font-size:23px}}
   </style>
 </head>
 <body>
   <main class="app">
-    <section class="hero"><div class="brand"><b>时</b>我的工时本</div><div class="intro"><div><p class="eyebrow">每天一笔，工时心中有数</p><h1>记录今天，掌握本月平均工时</h1><p class="sub">填写上下班时间后自动计算。所有数据仅保存在当前设备浏览器中。</p></div><div class="target"><label for="targetHours">公司要求平均工时</label><input id="targetHours" min="0" step="0.25" inputmode="decimal" type="number"><small>小时 / 天</small></div></div></section>
-    <section class="stats"><article class="card mint"><p class="label">本月平均工时</p><strong class="value" id="average">暂无记录</strong><span class="hint" id="averageHint">录入第一天后开始统计</span></article><article class="card"><p class="label">与目标相比</p><strong class="value positive" id="difference">—</strong><span class="hint" id="differenceHint">记录第一天，开始积累本月数据</span></article><article class="card"><p class="label">本月累计工时</p><strong class="value" id="total">0小时00分</strong><span class="hint" id="count">0 条有效记录</span></article></section>
-    <section class="workspace"><article class="panel"><div class="heading"><div><p class="eyebrow" id="entryEyebrow">快速录入</p><h2 id="entryTitle">添加当天工时</h2></div><span class="pill" id="todayPill" hidden>今天已记录</span></div><form id="workForm"><div class="form-grid"><label><span>日期</span><input id="date" type="date" required></label><label><span>上班时间</span><input id="startTime" type="time" required></label><label><span>下班时间</span><input id="endTime" type="time" required></label></div><label class="note"><span>备注（选填）</span><textarea id="note" placeholder="例如：调休、出差、加班项目…" rows="2"></textarea></label><div class="preview"><span>当天实际工时</span><strong id="todayHours">0小时00分</strong><small>按上下班时间自动计算</small></div><div class="actions"><button class="secondary" id="cancelEdit" type="button" hidden>取消修改</button><button class="primary" id="saveButton" type="submit">保存今天的记录</button></div></form></article><aside class="panel guide"><p class="eyebrow">使用提示</p><h2>只需三步</h2><ol><li><b>1</b>设定公司要求的每日平均工时</li><li><b>2</b>每天填入上下班时间</li><li><b>3</b>随时查看本月平均与目标差距</li></ol><div class="privacy">数据保存在本机浏览器。建议定期导出备份。</div></aside></section>
-    <section class="panel records"><div class="records-head"><div><p class="eyebrow">工时明细</p><h2>所有记录</h2></div><button class="export" id="exportButton" type="button">导出 CSV</button></div><div id="recordsArea"></div></section>
+    <header class="top">
+      <div>
+        <div class="brand">我的工时本</div>
+        <div class="now" id="nowText">—</div>
+      </div>
+      <label class="target">目标平均 <input id="targetHours" min="0" step="0.25" inputmode="decimal" type="number"> 小时/天</label>
+    </header>
+
+    <section class="stats">
+      <article class="card"><p class="label">本月平均</p><strong class="value" id="average">暂无</strong><span class="hint" id="averageHint">还没有记录</span></article>
+      <article class="card"><p class="label">与目标相比</p><strong class="value positive" id="difference">—</strong><span class="hint" id="differenceHint">设置目标后自动比较</span></article>
+      <article class="card"><p class="label">本月累计</p><strong class="value" id="total">0小时00分</strong><span class="hint" id="count">0 条记录</span></article>
+    </section>
+
+    <section class="punch">
+      <article class="panel">
+        <div class="section-title"><h1>今日打卡</h1><span class="now" id="todayState">未打卡</span></div>
+        <div class="punch-status">
+          <div class="slot"><span>上班</span><strong id="todayStart">—</strong></div>
+          <div class="slot"><span>下班</span><strong id="todayEnd">—</strong></div>
+        </div>
+        <div class="preview"><span>今日工时</span><strong id="todayWorked">0小时00分</strong></div>
+        <div class="button-row">
+          <button class="primary" id="clockInButton" type="button">上班打卡</button>
+          <button class="primary" id="clockOutButton" type="button">下班打卡</button>
+        </div>
+      </article>
+
+      <article class="panel">
+        <details class="manual">
+          <summary>手动补录 / 修改</summary>
+          <form id="workForm">
+            <div class="form-grid">
+              <label><span>日期</span><input id="date" type="date" required></label>
+              <label><span>上班时间</span><input id="startTime" type="time" required></label>
+              <label><span>下班时间</span><input id="endTime" type="time" required></label>
+            </div>
+            <label class="note"><span>备注（选填）</span><textarea id="note" rows="2"></textarea></label>
+            <div class="preview"><span>手动记录工时</span><strong id="manualHours">0小时00分</strong></div>
+            <div class="actions">
+              <button class="secondary" id="cancelEdit" type="button" hidden>取消</button>
+              <button class="primary" id="saveButton" type="submit">保存</button>
+            </div>
+          </form>
+        </details>
+      </article>
+    </section>
+
+    <section class="panel records">
+      <div class="records-head"><h2>记录</h2><button class="export" id="exportButton" type="button">导出 CSV</button></div>
+      <div id="recordsArea"></div>
+    </section>
   </main>
+
   <script>
     const KEY='my-work-hours-records', TARGET='my-work-hours-target';
-    const $=id=>document.getElementById(id); let records=[], editingId=null;
+    const $=id=>document.getElementById(id);
+    let records=[], editingId=null;
+    const pad=value=>String(value).padStart(2,'0');
     const today=()=>{const d=new Date(),o=d.getTimezoneOffset();return new Date(d-o*60000).toISOString().slice(0,10)};
-    const minutes=time=>{const [h,m]=time.split(':').map(Number);return h*60+m};
+    const currentTime=()=>{const d=new Date();return `${pad(d.getHours())}:${pad(d.getMinutes())}`};
+    const minutes=time=>{const [h,m]=String(time||'00:00').split(':').map(Number);return h*60+m};
     const work=r=>{if(!r.startTime||!r.endTime)return 0;let value=minutes(r.endTime)-minutes(r.startTime);if(value<0)value+=1440;return value};
-    const duration=value=>`${Math.floor(value/60)}小时${String(Math.round(value%60)).padStart(2,'0')}分`;
+    const duration=value=>`${Math.floor(value/60)}小时${pad(Math.round(value%60))}分`;
     const decimal=value=>(value/60).toFixed(2);
     const dateText=value=>{const [y,m,d]=value.split('-');return `${y}年${Number(m)}月${Number(d)}日`};
-    function reset(){editingId=null;$('date').value=today();$('startTime').value='09:00';$('endTime').value='18:00';$('note').value='';$('entryEyebrow').textContent='快速录入';$('entryTitle').textContent='添加当天工时';$('saveButton').textContent='保存今天的记录';$('cancelEdit').hidden=true;preview()}
+    const todayRecord=()=>records.find(r=>r.date===today());
+    const openRecord=()=>[...records].sort((a,b)=>b.date.localeCompare(a.date)).find(r=>r.startTime&&!r.endTime);
+    const makeId=()=>crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
     function save(){localStorage.setItem(KEY,JSON.stringify(records));localStorage.setItem(TARGET,$('targetHours').value)}
-    function preview(){const item={startTime:$('startTime').value,endTime:$('endTime').value};$('todayHours').textContent=duration(work(item))}
-    function render(){const month=today().slice(0,7), set=records.filter(r=>r.date.slice(0,7)===month), total=set.reduce((n,r)=>n+work(r),0), avg=set.length?Math.round(total/set.length):0,target=Math.max(0,Number($('targetHours').value||0)*60),diff=avg-target;$('average').textContent=set.length?duration(avg):'暂无记录';$('averageHint').textContent=set.length?`${set.length} 个工作日的平均值`:'录入第一天后开始统计';$('total').textContent=duration(total);$('count').textContent=`${set.length} 条有效记录`;$('difference').textContent=!set.length?'—':diff===0?'持平':`${diff>0?'+':'-'}${decimal(Math.abs(diff))} 小时`;$('difference').className=`value ${diff<0?'negative':'positive'}`;$('differenceHint').textContent=!set.length?'记录第一天，开始积累本月数据':diff===0?'刚好达到目标平均工时':`${diff>0?'高于':'低于'}目标 ${duration(Math.abs(diff))}`;$('todayPill').hidden=!records.some(r=>r.date===today());const rows=[...records].sort((a,b)=>b.date.localeCompare(a.date)).map(r=>`<tr><td><strong>${dateText(r.date)}</strong></td><td>${r.startTime} — ${r.endTime}</td><td><strong>${duration(work(r))}</strong></td><td>${escapeHtml(r.note)||'—'}</td><td class="row-buttons"><button onclick="editRecord('${r.id}')">编辑</button><button onclick="deleteRecord('${r.id}')">删除</button></td></tr>`).join('');$('recordsArea').innerHTML=rows?`<div class="table-wrap"><table><thead><tr><th>日期</th><th>上下班</th><th>实际工时</th><th>备注</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`:'<div class="empty"><i>⌁</i><h3>还没有工时记录</h3><p>从上面的表单开始，记录你的第一个工作日吧。</p></div>';save()}
+    function normalize(){records=records.filter(r=>r&&r.date).map(r=>({id:r.id||makeId(),date:r.date,startTime:r.startTime||'',endTime:r.endTime||'',note:r.note||''}))}
+    function upsert(record){records=records.filter(r=>r.id!==record.id&&r.date!==record.date);records.push(record);save();render()}
+    function reset(){editingId=null;$('date').value=today();$('startTime').value='09:00';$('endTime').value='18:00';$('note').value='';$('saveButton').textContent='保存';$('cancelEdit').hidden=true;previewManual()}
+    function previewManual(){const item={startTime:$('startTime').value,endTime:$('endTime').value};$('manualHours').textContent=duration(work(item))}
+    function setNow(){const d=new Date();$('nowText').textContent=`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日 ${pad(d.getHours())}:${pad(d.getMinutes())}`}
+
+    function clock(type){
+      const existing=type==='out'?(todayRecord()||openRecord()):todayRecord();
+      const record=existing||{id:makeId(),date:today(),startTime:'',endTime:'',note:''};
+      if(type==='in'){
+        if(record.startTime&&!confirm('今天已经有上班时间，要用当前时间覆盖吗？'))return;
+        record.startTime=currentTime();
+        if(record.endTime&&minutes(record.endTime)<minutes(record.startTime))record.endTime='';
+      }else{
+        if(!record.startTime){alert('还没有上班打卡。可以先上班打卡，或用手动补录。');return}
+        if(record.endTime&&!confirm('今天已经有下班时间，要用当前时间覆盖吗？'))return;
+        record.endTime=currentTime();
+      }
+      upsert(record);
+    }
+
+    function render(){
+      setNow();
+      const current=todayRecord();
+      $('todayStart').textContent=current?.startTime||'—';
+      $('todayEnd').textContent=current?.endTime||'—';
+      $('todayWorked').textContent=duration(work(current||{}));
+      $('todayState').textContent=!current?.startTime?'未打卡':current.endTime?'已完成':'上班中';
+
+      const month=today().slice(0,7);
+      const set=records.filter(r=>r.date.slice(0,7)===month&&r.startTime&&r.endTime);
+      const total=set.reduce((sum,r)=>sum+work(r),0);
+      const avg=set.length?Math.round(total/set.length):0;
+      const target=Math.max(0,Number($('targetHours').value||0)*60);
+      const diff=avg-target;
+      $('average').textContent=set.length?duration(avg):'暂无';
+      $('averageHint').textContent=set.length?`${set.length} 天平均值`:'完成一次下班后开始统计';
+      $('total').textContent=duration(total);
+      $('count').textContent=`${set.length} 条完整记录`;
+      $('difference').textContent=!set.length?'—':diff===0?'持平':`${diff>0?'+':'-'}${decimal(Math.abs(diff))} 小时`;
+      $('difference').className=`value ${diff<0?'negative':'positive'}`;
+      $('differenceHint').textContent=!set.length?'设置目标后自动比较':diff===0?'刚好达到目标':`${diff>0?'高于':'低于'}目标 ${duration(Math.abs(diff))}`;
+
+      const rows=[...records].sort((a,b)=>b.date.localeCompare(a.date)).map(r=>`<tr><td><strong>${dateText(r.date)}</strong></td><td>${r.startTime||'—'} - ${r.endTime||'—'}</td><td><strong>${r.startTime&&r.endTime?duration(work(r)):'未完成'}</strong></td><td>${escapeHtml(r.note)||'—'}</td><td class="row-buttons"><button onclick="editRecord('${r.id}')">编辑</button><button onclick="deleteRecord('${r.id}')">删除</button></td></tr>`).join('');
+      $('recordsArea').innerHTML=rows?`<div class="table-wrap"><table><thead><tr><th>日期</th><th>上下班</th><th>工时</th><th>备注</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`:'<div class="empty">还没有记录，先点一次上班打卡。</div>';
+      save();
+    }
+
     function escapeHtml(value){return String(value||'').replace(/[&<>'"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]))}
-    window.editRecord=id=>{const r=records.find(item=>item.id===id);if(!r)return;editingId=id;$('date').value=r.date;$('startTime').value=r.startTime;$('endTime').value=r.endTime;$('note').value=r.note;$('entryEyebrow').textContent='正在修改记录';$('entryTitle').textContent='修改当天工时';$('saveButton').textContent='保存修改';$('cancelEdit').hidden=false;preview();scrollTo({top:0,behavior:'smooth'})};
-    window.deleteRecord=id=>{if(confirm('确定删除这条工时记录吗？')){records=records.filter(r=>r.id!==id);if(editingId===id)reset();render()}};
-    $('workForm').addEventListener('submit',event=>{event.preventDefault();const data={id:editingId||crypto.randomUUID(),date:$('date').value,startTime:$('startTime').value,endTime:$('endTime').value,note:$('note').value};records=records.filter(r=>r.id!==editingId&&r.date!==data.date);records.push(data);reset();render()});
-    ['startTime','endTime'].forEach(id=>$(id).addEventListener('input',preview));$('targetHours').addEventListener('input',render);$('cancelEdit').addEventListener('click',reset);$('exportButton').addEventListener('click',()=>{if(!records.length)return;const rows=[['日期','上班','下班','实际工时（小时）','备注'],...records.map(r=>[r.date,r.startTime,r.endTime,decimal(work(r)),r.note])];const text='\uFEFF'+rows.map(row=>row.map(v=>`"${String(v).replaceAll('"','""')}"`).join(',')).join('\n');const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));link.download='我的工时记录.csv';link.click();URL.revokeObjectURL(link.href)});
-    try{records=JSON.parse(localStorage.getItem(KEY)||'[]');$('targetHours').value=localStorage.getItem(TARGET)||'8'}catch{records=[];$('targetHours').value='8'}reset();render();
+    window.editRecord=id=>{const r=records.find(item=>item.id===id);if(!r)return;editingId=id;$('date').value=r.date;$('startTime').value=r.startTime||'09:00';$('endTime').value=r.endTime||'18:00';$('note').value=r.note||'';$('saveButton').textContent='保存修改';$('cancelEdit').hidden=false;document.querySelector('.manual').open=true;previewManual();scrollTo({top:0,behavior:'smooth'})};
+    window.deleteRecord=id=>{if(confirm('确定删除这条记录吗？')){records=records.filter(r=>r.id!==id);if(editingId===id)reset();render()}};
+    $('clockInButton').addEventListener('click',()=>clock('in'));
+    $('clockOutButton').addEventListener('click',()=>clock('out'));
+    $('workForm').addEventListener('submit',event=>{event.preventDefault();const data={id:editingId||makeId(),date:$('date').value,startTime:$('startTime').value,endTime:$('endTime').value,note:$('note').value};upsert(data);reset()});
+    ['startTime','endTime'].forEach(id=>$(id).addEventListener('input',previewManual));
+    $('targetHours').addEventListener('input',render);
+    $('cancelEdit').addEventListener('click',reset);
+    $('exportButton').addEventListener('click',()=>{if(!records.length)return;const rows=[['日期','上班','下班','实际工时（小时）','备注'],...records.map(r=>[r.date,r.startTime,r.endTime,r.startTime&&r.endTime?decimal(work(r)):'',r.note])];const text='\uFEFF'+rows.map(row=>row.map(v=>`"${String(v).replaceAll('"','""')}"`).join(',')).join('\n');const link=document.createElement('a');link.href=URL.createObjectURL(new Blob([text],{type:'text/csv;charset=utf-8'}));link.download='我的工时记录.csv';link.click();URL.revokeObjectURL(link.href)});
+    if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+    try{records=JSON.parse(localStorage.getItem(KEY)||'[]');$('targetHours').value=localStorage.getItem(TARGET)||'8';normalize()}catch{records=[];$('targetHours').value='8'}
+    reset();render();setInterval(render,30000);
   </script>
 </body>
 </html>

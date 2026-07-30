@@ -34,8 +34,6 @@ jobs:
           cp site/icon.svg _site/icon.svg
           cp site/icon-192.png _site/icon-192.png
           cp site/icon-512.png _site/icon-512.png
-          perl -0pi -e 's%</head>%  <meta name="theme-color" content="#0a4036">\n  <meta name="apple-mobile-web-app-capable" content="yes">\n  <meta name="apple-mobile-web-app-title" content="我的工时本">\n  <meta name="apple-mobile-web-app-status-bar-style" content="default">\n  <link rel="manifest" href="manifest.webmanifest">\n  <link rel="icon" href="icon.svg" type="image/svg+xml">\n  <link rel="apple-touch-icon" href="icon-192.png">\n</head>%' _site/index.html
-          perl -0pi -e 's%</body>%  <script>\n    if ("serviceWorker" in navigator) {\n      window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));\n    }\n  </script>\n</body>%' _site/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
